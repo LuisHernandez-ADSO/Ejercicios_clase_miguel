@@ -35,17 +35,15 @@ const estaAprobado = (nota) => {
 }
 
 const notaMenor = (a, b) => {
-    if (a == b) {
+    if (a < b) {
         return a
-    } else if (a<b){
-        return a
-    } return b
+    } else return b
 }
 
 let notasValidas = 0
 let personasAprobadas = 0
 let notas = 0
-let menor = 0
+let menor = 5.0
 
 while (true) {
     const nota = parseFloat(prompt("Ingrese una nota (-1 para terminar)"))
@@ -60,10 +58,12 @@ while (true) {
         if (!valida) {
             console.log(`Nota invalida, debe estar entre 0 y 5`);
         } else {
-            
+
             const notaAprobada = estaAprobado(nota);
+            menor =notaMenor(nota, menor)
 
             if (notaAprobada) personasAprobadas++
+
             notas += nota
             notasValidas++
 
@@ -75,5 +75,5 @@ const promedio = notas / notasValidas
 
 console.log(`La cantidad de notas validas es: ${notasValidas}`);
 console.log(`El promedio es: ${promedio}`);
-console.log(`Nota mas baja`);
+console.log(`Nota mas baja ${menor}`);
 console.log(`Cantidad aprobados: ${personasAprobadas}`);

@@ -26,35 +26,49 @@
 //proceso: cantidad clientes, total cobrado, obtener la compra mas alta
 //salida: total por cliente, compra mas alta con su numero de cliente y el monto
 
-const atenderCliente = (numeroCliente) => {
-    console.log(`Cliente numero ${numeroCliente}`);
-
-    while (true) {
-        
-        const valorProducto = parseInt(prompt("Precio del producto (0 para cerrar la cuenta)"));
-        if (valorProducto == 0) {
-            console.log(`Total cliente ${numeroCliente}: ${sumaCuenta}`);
-            hayOtroCliente()
-            break
-
-        } else {
-            sumaCuenta += valorProducto
-        }
-    }
+const atenderCliente = (numeroCliente, totalCliente) => {
+    console.log(`Total cliente ${numeroCliente}: ${totalCliente}`);
+    hayOtroCliente()
 }
 
 const hayOtroCliente = () => {
-    const otroCliente = prompt("Hay otro cliente en la fila? (S/N)")
+    const otroCliente = prompt("¿Hay otro cliente? (S/N):")
 
     if (otroCliente == "S") {
-        numCliente++
-        atenderCliente(numCliente)
+        numeroCliente++
+    } else {
+        atencion = false
     }
 }
 
-let numCliente = 1
-let sumaCuenta = 0
+let numeroCliente = 1
+let TotalNeto = 0
+let totalCliente = 0
+let atencion = true
 
-atenderCliente(numCliente)
+//mejor cliente
+let maxMonto = 0
+let maxCliente = 0
 
+while (atencion) {
+    const valor = parseInt(prompt("Precio (0 para cerrar la cuenta"));
 
+    if (valor == 0) {
+
+        if (maxMonto < totalCliente) {
+            maxMonto = totalCliente
+            maxCliente = numeroCliente
+        }
+        atenderCliente(numeroCliente, totalCliente)
+
+        TotalNeto += totalCliente
+        totalCliente = 0
+    } else {
+        totalCliente += valor
+    }
+}
+
+console.log(`Clientes atendidos: ${numeroCliente}`);
+console.log(`El total recaudado es: ${TotalNeto}`);
+
+console.log(`El cliente con mayor monto es el cliente ${maxCliente} con un total de: ${maxMonto}`);

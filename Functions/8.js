@@ -40,16 +40,23 @@ const calcularPromedio = (sumatoria, cantidad) => {
 let sumatoria = 0
 let cantidad = 0
 
-let mayor = 0
+let mayor
+let menor
 
 for (let i = 1; i <= 4; i++) {
     const punto = parseInt(prompt(`Ingrese el punto del auto ${i}`))
-    
-    mayor = obtenerMayor(punto, mayor) //R
-    
-    menor = obtenerMenor(punto, mayor)
 
-    //promedio
+    if (i == 1) {
+        mayor = punto
+        menor = punto
+    } else {
+
+        mayor = obtenerMayor(punto, mayor) //R
+
+        menor = obtenerMenor(punto, menor)
+
+    }
+    
     cantidad++
     sumatoria += punto
 }
