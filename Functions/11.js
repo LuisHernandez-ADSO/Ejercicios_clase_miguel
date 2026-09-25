@@ -27,29 +27,37 @@ const generarNumeroSecreto = () => {
 
 const evaluarIntento = (intento, secreto) => {
     if (intento > secreto) {
-        console.log(`El numero secreto es menor`);
-        return false
+        return "menor"
     }
     else if (intento < secreto) {
-        console.log(`El numero secreto es mayor`);
-        return false
+        return "mayor"
     }
     else {
-        console.log(`Lo logro...`);
-        return true
+        return "correcto"
     }
 }
 
 const numeroSecreto = generarNumeroSecreto()
-console.log(`El numero secreto es: ${numeroSecreto}`);
+console.log(`El numero secreto es: ${numeroSecreto}`); //para comprobar el numero
 
 
 for (let i = 1; i <= 7; i++) {
     const numeroUsuario = parseInt(prompt(`Intento numero ${i}, ingrese un numero`))
     let adivinar = evaluarIntento(numeroUsuario, numeroSecreto)
 
-    if (adivinar) {
-        console.log(`Adivinaste en ${i} intentos`);
+    if (adivinar == "menor") {
+        console.log("Mas abajo");
+
+    } else if (adivinar == "mayor") {
+        console.log("Mas arriba");
+
+    } else {
+        console.log(`Lo lograste en ${i} intentos`);
         break
+    }
+
+    if (i == 7) {
+        console.log(`Se acabaron los intentos, el numero secreto es: ${numeroSecreto}`);
+
     }
 }

@@ -43,7 +43,7 @@ let cantidad = 0
 let mayor
 let menor
 
-for (let i = 1; i <= 4; i++) {
+for (let i = 1; i <= 25; i++) {
     const punto = parseInt(prompt(`Ingrese el punto del auto ${i}`))
 
     if (i == 1) {

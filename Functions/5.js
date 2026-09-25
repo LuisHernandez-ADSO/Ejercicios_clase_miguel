@@ -23,7 +23,7 @@ const clasificarNumero = (num) => {
         return "negativo"
     } else if (num > 0) {
         return "positivo"
-    }
+    } else return "cero"
 }
 
 const contarNumeros = (num) => {
@@ -32,7 +32,7 @@ const contarNumeros = (num) => {
         negativos++
     } else if (clasificacion == "positivo") {
         positivos++
-    } else {
+    } else if (clasificacion == "cero") {
         ceros++
     }
 }

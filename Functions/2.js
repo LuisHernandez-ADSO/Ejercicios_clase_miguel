@@ -24,7 +24,11 @@ const numeroCuartaParte = (numero) => {
     return numero / 4
 }
 
+let sumaCubo = 0
 for (let i = 1; i < 11; i++) {
     let numero = parseInt(prompt(`Numero ${i}`))
+    sumaCubo += numeroCubo(numero)
     console.log(`Numero ${numero} | Cubo: ${numeroCubo(numero)} | Cuarta parte: ${numeroCuartaParte(numero)}`);
 }
+
+console.log(`La suma de todos los cubos es: ${sumaCubo}`);

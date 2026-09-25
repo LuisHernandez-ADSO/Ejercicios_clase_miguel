@@ -28,17 +28,22 @@
 //proceso: promedio de los pesos en las basculas, evaluar promedio con peso inicial
 //salida: aumento || bajo || se mantivo
 
-const leerPromedioBasculas = () => {
+const leerPromedioBasculas = (cantidadBasculas) => {
     let sumaBascula = 0
-    for (let j = 1; j <= 3; j++) { //pedir los pesos de la bascula
+    for (let j = 1; j <= cantidadBasculas; j++) { //pedir los pesos de la bascula
         let valorBascula = parseInt(prompt(`Bascula ${j}`))
         sumaBascula += valorBascula
     }
-    return sumaBascula / 3
+    return sumaBascula / cantidadBasculas
 }
 
 const obtenerValorAbsoluto = (numero) => {
-    return Math.abs(numero)
+    if (numero > 0) {
+        return numero
+
+    } else {
+        return -numero
+    }
 }
 
 const generarLetrero = (diferencia) => {
@@ -48,13 +53,12 @@ const generarLetrero = (diferencia) => {
 
 }
 
-const cantidadPersonas = parseInt(prompt("Ingrese la cantidad de miembros"))
 
-for (let i = 1; i <= cantidadPersonas; i++) {
+for (let i = 1; i <= 5; i++) {
 
     const pesoIincial = parseInt(prompt(`Ingrese el peso anterior, miembro numero ${i}`))
 
-    const promedioBascula = leerPromedioBasculas()
+    const promedioBascula = leerPromedioBasculas(10)
 
     const diferencia = pesoIincial - promedioBascula
     generarLetrero(diferencia)

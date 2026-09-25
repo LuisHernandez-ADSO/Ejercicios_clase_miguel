@@ -66,8 +66,16 @@ for (let i = 1; i <= cantidadPersonas; i++) {
     sumatoriaEdades += edad
 }
 
+if (cantidadHombres == 0) {
+    console.log(`No hay hombres, no promedio`);
+} else {
+    console.log(`Hombres ${cantidadHombres}, promedio: ${calcularPromedio(edadHombre, cantidadHombres)}`);
+}
+
+if (cantidadMujeres == 0) {
+    console.log(`No hay mujeres, no promedio`);
+
+} else {
+    console.log(`Mujeres ${cantidadMujeres}, promedio: ${calcularPromedio(edadMujer, cantidadMujeres)}`);
+}
 console.log(`El promedio de todas las edades de todo el grupo es: ${calcularPromedio(sumatoriaEdades, cantidadPersonas)}`);
-console.log(`El promedio de todas las edades de los hombres es: ${calcularPromedio(edadHombre, cantidadHombres)}`);
-console.log(`El promedio de todas las edades de las mujeres es: ${calcularPromedio(edadMujer, cantidadMujeres)}`);
-
-
