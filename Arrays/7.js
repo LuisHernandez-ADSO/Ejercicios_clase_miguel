@@ -33,7 +33,11 @@ const contarPorEstrellas = (calificaciones) => {
 const repetirCaracter = (caracter, veces) => {
     //si tengo 4 veces necesito ****, mostrar un log veces veces en una sola linea?
     //si itero imprimo linea por linea
-    
+    let concatenar = ""
+    for (let i = 0; i < veces; i++) {
+        concatenar += caracter
+    }
+    return concatenar
 }
 
 //ejercicio 5
@@ -49,7 +53,7 @@ const buscarPosicionMayor = (numeros) => {
 
 let calificaciones = []
 
-for (let i = 1; i <= 3; i++) {
+for (let i = 1; i <= 10; i++) {
     let calificacion = parseInt(prompt(`Ingrese la calificacion ${i}`))
     calificaciones.push(calificacion)
 }
@@ -59,9 +63,12 @@ console.log(cantidadEstrellas);
 
 
 for (let i = 0; i < cantidadEstrellas.length; i++) {
+    
     let veces = cantidadEstrellas[i]
 
-    repetirCaracter("*", veces)
+    let letras = repetirCaracter("*", veces)
+        console.log(`Estrellas ${i}: ${letras} (${veces})`);
+
 }
 
 
