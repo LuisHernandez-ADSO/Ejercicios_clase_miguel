@@ -23,14 +23,28 @@
 // • buscarDefinicion(glosario, termino): retorna la definición o undefined.
 // • contarClaves(objeto): la del ejercicio 5
 
+
 const buscarDefinicion = (glosario, termino) => {
+    let definición = undefined
+    for (const key in glosario) {
 
+        if (key == termino) {
+            definición = glosario[key]
+            return definición
+        }
+    }
+    return definición
 }
 
-const contarClaves = (objeto) =>{
+const contarClaves = (objeto) => {
+    let count = 0
 
+    for (let clave in objeto) {
+        count++
+    }
+    return count
 }
- 
+
 let glosario = {
     api: "Conjunto de reglas para que dos programas se comuniquen.",
     servidor: "Programa que recibe peticiones y devuelve respuestas.",
@@ -39,6 +53,27 @@ let glosario = {
     endpoint: "Combinación de un método HTTP y una ruta."
 };
 
-while(true){
+while (true) {
     let termino = prompt("Termino")
+    termino = termino.toLowerCase()
+
+    if (termino == "fin") {
+        console.log(contarClaves(glosario));
+        break;
+    }
+
+    const existe = buscarDefinicion(glosario, termino)
+
+    if (existe != undefined) {
+        console.log(existe);
+
+    } else {
+        console.log(`El termino "${termino}" no esta en el glosario`);
+        const agregar = prompt("¿Quiere agregarlo? (si/no)")
+
+        if (agregar == "si") {
+            const definicion = prompt(`Ìngrese la definicion de ${termino}`)
+            glosario[termino] = definicion
+        }
+    }
 }
